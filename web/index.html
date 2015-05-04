@@ -9,28 +9,12 @@ nav{
   z-index:400001;
 }
 
-p {
-  margin-left: 100px;
-  margin-right: 100px;
-
+body {
+  overflow-x:hidden;
 }
 
 #intro {
-  background-size:cover;
-  border-color: #aaa;
-  padding: 10px;
-  display: inline-block;
-  width:80%;
   margin-top: 100px;
-}
-
-#about {
-  background-size:cover;
-  border-color: #aaa;
-  padding: 10px;
-  display: inline-block;
-  width:80%;
-  margin: 25px 50px 0 100px;
 }
 
 #about p {
@@ -42,15 +26,6 @@ p {
   margin: 0px 0px 0px 0px;
 }
 
-#footer {
-  display: inline-block;
-  top: 90%;
-}
-div#page-container {
-  display: inline-block;
-  top: 25px;
-  width: 100%;
-}
 div#search-field{
   width: 75%;
   height: 50px;
@@ -209,39 +184,8 @@ span#termname{
 <p>This website houses over 400 cyber and information security related definitions from around the world and we are constantly looking to expand and update our database. Use the search bar below to explore the database or download and browse the data by clicking the link at the top of the page. If you know of a definition that we don’t have but should, please <a href="https://newamerica.wufoo.com/forms/rtxo6wi08n1u7x/" class="na ">Submit Definitions</a> to us.</p>
 <p><a href="#about" class="na ">Read more about the Cyber Definitions Project.</a></p>
 
-  <div id="page-container">
-    
-      <div id="search-field">
-        <form id="search-form">
-        <h3 style="display: inline;">Search:</h3>
-        <input type="text" placeholder="Enter your search term here" id="q" name="q" list="terms">
-        <br />
-        <h4 style="display: inline;">Advanced Filters:</h4>
-        <div id="adv-search">
-          <div class="selectboxes">
-            <select id="Source"><option value="any">Any Source</select>
-            <select id="Year"><option value="any">Any Year</select>
-          </div>
-          <div class="checkboxes">
-            <label><input type="checkbox" name="P5" value="1">P5</label>
-            <label><input type="checkbox" name="UNGGE4" value="1">UNGGE4</label>
-            <label><input type="checkbox" name="OSCE" value="1">OSCE</label>
-            <label><input type="checkbox" name="OtherState" value="1">Other State</label>
-            <label><input type="checkbox" name="IGO" value="1">IGO</label>
-            <label><input type="checkbox" name="OtherSource" value="1">Other Source</label>
-          </div>
-        </div>
+<iframe src="search.html" style="width:90%; height:600px; margin: 0; border:none; "></iframe>
 
-      </div>
-      </form>
-    <div id="search-result"></div>
-
-  <script>
-  </script>
-
-    <!-- <div id="word-cloud"></div>
-    <div id="map"> </div> -->
-  </div>
 </div>
 
     </div>
