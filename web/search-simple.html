@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+@import "css/bootstrap.min.css";
+@import "assets/css/styles.css";
+@import "assets/css/wide.css";
+
+nav{
+  z-index:400001;
+}
+
+body {
+  overflow-x:hidden;
+}
+
+div#search-field{
+  height: 50px;
+  display: inline-block;
+}
+form#search-form{
+  width: 100%;
+  height: 40px;
+  margin: 25px 100px 0 100px;
+  padding: 0 auto;
+  display: block;
+}
+form#search-form div.selectboxes select {
+  display: inline-block;
+}
+div#term-heading {
+  display: block;
+  margin-bottom: 20px;
+}
+div#search-result {
+  margin: 25px 100px 0 100px;
+  left: 10px;
+  width: 100%;
+  display: inline-block;
+  clear: both;
+}
+div#adv-search input[type=checkbox] {
+  margin-right: 3px;
+}
+div#adv-search label {
+  margin-right: 20px;
+}
+ul#term-tabs {
+  display: inline-block;
+  width: 35%;
+  float: left;
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+ul#term-tabs li {
+  list-style: none;
+  display: block;
+  margin: 0;
+  padding: 2px;
+}
+ul#term-tabs li a {
+  text-decoration: none;
+  color: #1a1a1a;
+  font-weight: bold;
+  font-size: 1em;
+}
+ul#term-tabs li.active{
+  background: #aaa;
+}
+ul#term-tabs li:hover {
+  background: #ccc;
+}
+div#term-defs {
+  display: inline-block;
+  margin-right: 20%;
+  padding: 1em;
+  border: 1px solid #aaa;
+  height:500px; 
+  overflow-y: scroll;
+}
+div#term-defs .citation {
+  font-size: 0.85em;
+  margin: 10px 0 0;
+  font-style: italic;
+  border-top: 1px dotted #aaa;
+  border-bottom: 1px solid #aaa;
+  padding: 0 1em 2em 0;
+}
+div.showhide {
+  width: 100%;
+  clear: both;
+  float: right;
+}
+div.showhide.hiding {
+  background: #eee;
+  border-bottom: 1px solid #aaa;
+}
+div.showhide .heading {
+  float: left;
+}
+div.showhide .link {
+  float: right;
+}
+div.card {
+  clear: both;
+}
+div#deeplink {
+  width: 70%;
+  font-weight: bold;
+  margin-top: 20px
+}
+span#termname{
+  font-weight: bold;
+}
+.country {
+  fill: #ccc;
+  stroke: #fff;
+  stroke-width: .5px;
+  stroke-linejoin: round;
+}
+.graticule {
+  fill: none;
+  stroke: #000;
+  stroke-opacity: .3;
+  stroke-width: .5px;
+}
+.graticule.outline {
+  stroke: #333;
+  stroke-opacity: 1;
+  stroke-width: 1.5px;
+}
+</style>
+
+
+<script src="d3/d3.v3.min.js"></script>
+<script src="d3/d3.geo.projection.v0.min.js"></script>
+<script src="d3/topojson.v1.min.js"></script>
+<script src="d3/d3.layout.cloud.js"></script>
+<script src="js/jquery-2.1.1.min.js"></script>
+<script src="js/definitions.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="assets/js/modernizr-latest.js"></script>
+</head>
+<body>
+  <div id="page-container">
+    
+      <div id="search-field">
+        <form id="search-form">
+        <h3 style="display: inline;">Search:</h3>
+        <input type="text" placeholder="Enter your search term here" id="q" name="q" list="terms">
+        <br />
+      </div>
+      </form>
+    <div id="search-result"></div>
+
+    <!-- <div id="word-cloud"></div>
+    <div id="map"> </div> -->
+  </div>
+</div>
+
+    </div>
+    <div class="scripted_styling"></div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>    
+    <script>window.jQuery || document.write('<script src="assets/js/libs/jquery-1.11.1.min.js"><\/script>')</script> 
+    <script src="assets/js/jquery.widowFix-1.3.2.min.js"></script> 
+
+    <script src="assets/js/components/nav.js"></script> 
+    <script src="assets/compiled/js/core.js"></script>
+
+</body>
+</html>
