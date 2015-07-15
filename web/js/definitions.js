@@ -18,7 +18,7 @@ function loadTerms() {
     if ($('body').data('terms') === undefined) {
         var data = buildDefaultDataObj();
         data['fields'] = 'Term';
-        data['limit'] = 500;
+        data['limit'] = 10000;
         $.ajax({
             //  headers: {Authorization: getAuthToken()},
             url: getCkanUrl(),
