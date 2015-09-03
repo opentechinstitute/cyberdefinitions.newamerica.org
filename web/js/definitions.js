@@ -6,7 +6,7 @@ function emptytext() { return '<div class="no-results">Sorry, no terms meet the 
 function buildDefaultDataObj() {
   var data = {
     resource_id : getResourceID(),
-    // fields : 'Term',
+     fields : 'Term',
     // limit: 500,
     // distinct : true, // this doesn't seem to work, but leaving in hope that it migh
   }
@@ -51,7 +51,7 @@ function loadYears() {
     if ($('body').data('years') === undefined) {
         var data = buildDefaultDataObj();
         data['fields'] = 'Year';
-        data['limit'] = 1000;
+        data['limit'] = 10000;
         $.ajax({
             //  headers: {Authorization: getAuthToken()},
             url: getCkanUrl(),
@@ -395,6 +395,7 @@ function advSearchFormCheckboxValues() {
     var otherstate = parseInt($('form#search-form input:checkbox[name=OtherState]:checked').val());
     var igo = parseInt($('form#search-form input:checkbox[name=IGO]:checked').val());
     var othersource = parseInt($('form#search-form input:checkbox[name=OtherSource]:checked').val());
+    var osceOfficial = parseInt($('form#search-form input:checkbox[name=OSCEOfficial]:checked').val());
     // if (!ungge4) {  var ungge4 = 0; }
     // if (!osce) { var osce = 0; }
     // if (!otherstate) { var otherstate = 0; }
@@ -410,6 +411,7 @@ function advSearchFormCheckboxValues() {
     if(otherstate == 1) {values['OtherState'] = otherstate; i++;}
     if(igo == 1) {values['IGO'] = igo; i++;}
     if ( othersource == 1) {values['OtherSource'] = othersource; i++;}
+    if ( osceOfficial == 1) {values['OSCEOfficial'] = osceOfficial; i++;}
 
     if (i > 0) {
       return values; 
@@ -423,8 +425,8 @@ function loadUniqueSourceFields() {
   var data = {
     resource_id : getResourceID(),
     fields : 'Source',
-    limit: 500,
-    distinct : true, // this doesn't seem to work, but leaving in hope that it migh
+    limit: 10000,
+    //distinct : true, // this doesn't seem to work, but leaving in hope that it migh
   }
   var sources = {};
   $.ajax({
