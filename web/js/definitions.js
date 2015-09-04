@@ -6,7 +6,7 @@ function emptytext() { return '<div class="no-results">Sorry, no terms meet the 
 function buildDefaultDataObj() {
   var data = {
     resource_id : getResourceID(),
-    // fields : 'Term',
+     fields : 'Term',
     // limit: 500,
     // distinct : true, // this doesn't seem to work, but leaving in hope that it migh
   }
@@ -51,7 +51,7 @@ function loadYears() {
     if ($('body').data('years') === undefined) {
         var data = buildDefaultDataObj();
         data['fields'] = 'Year';
-        data['limit'] = 1000;
+        data['limit'] = 10000;
         $.ajax({
             //  headers: {Authorization: getAuthToken()},
             url: getCkanUrl(),
@@ -63,16 +63,16 @@ function loadYears() {
                 for (i = 0; i < data.result.total; i++) {
                     var year = data.result.records[i];
                     year = year['Year'];
-                    if (year === 'No year given') {
-                        var ckanyear = '';
-                        var year = year;
+                    if (year === '.') {
+                        var ckanyear = year;
+                        var year = "No year given";
                     }
                     else {
                         var ckanyear = year;
                         year = year.substring(0, year.length -2);
                     }
                     if (!(year in years)) { years[year] = ckanyear; }
-                }             
+                }
                 $('body').data('years', years);
             }
         });
@@ -86,13 +86,13 @@ function loadYearsArray() {
   $.each(years, function( k, v ) {
     out.push(k);
   });
-    return out.sort();
+  return out.sort();
 }
 function buildYearSelect() {
     var ckanyears = loadYears();
     var years = loadYearsArray();
     var noyear = years.pop();
-    var options = '<option value="'+ noyear +'">'+ noyear +'</option>';
+    var options = '<option value="'+ ckanyears[noyear] +'">'+ noyear +'</option>';
     $.each(years, function(k, year) {
         options += '<option value="'+ ckanyears[year] +'">'+ year +'</option>';
     });
@@ -395,6 +395,7 @@ function advSearchFormCheckboxValues() {
     var otherstate = parseInt($('form#search-form input:checkbox[name=OtherState]:checked').val());
     var igo = parseInt($('form#search-form input:checkbox[name=IGO]:checked').val());
     var othersource = parseInt($('form#search-form input:checkbox[name=OtherSource]:checked').val());
+    var osceOfficial = parseInt($('form#search-form input:checkbox[name=OSCEOfficial]:checked').val());
     // if (!ungge4) {  var ungge4 = 0; }
     // if (!osce) { var osce = 0; }
     // if (!otherstate) { var otherstate = 0; }
@@ -410,6 +411,7 @@ function advSearchFormCheckboxValues() {
     if(otherstate == 1) {values['OtherState'] = otherstate; i++;}
     if(igo == 1) {values['IGO'] = igo; i++;}
     if ( othersource == 1) {values['OtherSource'] = othersource; i++;}
+    if ( osceOfficial == 1) {values['OSCEOfficial'] = osceOfficial; i++;}
 
     if (i > 0) {
       return values; 
@@ -423,8 +425,8 @@ function loadUniqueSourceFields() {
   var data = {
     resource_id : getResourceID(),
     fields : 'Source',
-    limit: 500,
-    distinct : true, // this doesn't seem to work, but leaving in hope that it migh
+    limit: 10000,
+    //distinct : true, // this doesn't seem to work, but leaving in hope that it migh
   }
   var sources = {};
   $.ajax({
@@ -479,79 +481,6 @@ function buildDeepLink() {
     return link;
 }
 
-// function wordCloud() {
-//   var words = loadTermsArray();
-//   var fill = d3.scale.category20();
-//   d3.layout.cloud().size([960, 400])
-//   .words(words.map(function(d) {
-// return {text: d, size: d.size};
-// }))
-//   .padding(3)
-//   .rotate(function() { return ~~(Math.random() * 2) * 90; })
-//   .font("Impact")
-//   .fontSize(function(d) { return d.size; })
-//   .on("end", draw)
-//   .start();
-//   function draw(words) {
-//     d3.select("div#word-cloud").append("svg")
-//     .attr("width", 960)
-//     .attr("height", 400)
-//     .append("g")
-//     .attr("transform", "translate(150,150)")
-//     .selectAll("text")
-//     .data(words)
-//     .enter().append("text")
-//     .style("font-size", function(d) { return d.size + "px"; })
-//     .style("font-family", "Impact")
-//     .style("fill", function(d, i) { return fill(i); })
-//     .attr("text-anchor", "middle")
-//     .attr("transform", function(d) {
-//       return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
-//     })
-//    .text(function(d) { return d.text; });
-//   }
-//   $('div#word-cloud text').click(function() {
-//     firequery($(this)[0].innerHTML, 'filters', 'all');
-//   });
-// }
-
-// function map() {
-//   var width = 960,
-//   height = 500;
-
-//   var projection = d3.geo.kavrayskiy7(),
-//   color = d3.scale.category20(),
-//   graticule = d3.geo.graticule();
-
-//   var path = d3.geo.path()
-//   .projection(projection);
-
-//   var svg = d3.select("#map").append("svg")
-//   .attr("width", width)
-//   .attr("height", height);
-
-//   svg.append("path")
-//   .datum(graticule)
-//   .attr("class", "graticule")
-//   .attr("d", path);
-
-//   svg.append("path")
-//   .datum(graticule.outline)
-//   .attr("class", "graticule outline")
-//   .attr("d", path);
-
-//   d3.json("map/world-50m.json", function(error, world) {
-//     var countries = topojson.feature(world, world.objects.countries).features;
-
-
-//     svg.selectAll(".country")
-//     .data(countries)
-//     .enter().insert("path", ".graticule")
-//     .attr("class", "country")
-//     .attr("d", path)
-//     // .style("fill", function(d, i) { return color(d.color = d3.max(neighbors[i], function(n) { return countries[n].color; }) + 1 | 0); });
-//   });
-// }
 
 function definitionTabs() {
   $('ul#term-tabs').each(function(){
