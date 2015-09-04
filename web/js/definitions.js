@@ -7,7 +7,7 @@ function buildDefaultDataObj() {
   var data = {
     resource_id : getResourceID(),
      fields : 'Term',
-    // limit: 500,
+     limit: 10000,
     // distinct : true, // this doesn't seem to work, but leaving in hope that it migh
   }
     return data;
@@ -171,7 +171,7 @@ function firequery(query, op, fields) {
     $('body').data('searchop', op);
     var data = {
         resource_id : getResourceID(),
-        // limit: 10,
+         limit: 10000,
         // filters: "{\"Term\" : \""+ query +"\"}",
         sort: "Term"
     };
@@ -275,6 +275,7 @@ function firequery(query, op, fields) {
                     // }
                 }
             });
+            if (query === '') { $('div#term-defs').css('display', 'none'); }
 
             // if (op === 'q') {
             //   $("ul#term-tabs").append(menu);
