@@ -63,16 +63,16 @@ function loadYears() {
                 for (i = 0; i < data.result.total; i++) {
                     var year = data.result.records[i];
                     year = year['Year'];
-                    if (year === 'No year given') {
-                        var ckanyear = '';
-                        var year = year;
+                    if (year === '.') {
+                        var ckanyear = year;
+                        var year = "No year given";
                     }
                     else {
                         var ckanyear = year;
                         year = year.substring(0, year.length -2);
                     }
                     if (!(year in years)) { years[year] = ckanyear; }
-                }             
+                }
                 $('body').data('years', years);
             }
         });
@@ -86,13 +86,13 @@ function loadYearsArray() {
   $.each(years, function( k, v ) {
     out.push(k);
   });
-    return out.sort();
+  return out.sort();
 }
 function buildYearSelect() {
     var ckanyears = loadYears();
     var years = loadYearsArray();
     var noyear = years.pop();
-    var options = '<option value="'+ noyear +'">'+ noyear +'</option>';
+    var options = '<option value="'+ ckanyears[noyear] +'">'+ noyear +'</option>';
     $.each(years, function(k, year) {
         options += '<option value="'+ ckanyears[year] +'">'+ year +'</option>';
     });
