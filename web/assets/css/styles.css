@@ -5,7 +5,7 @@
 
 /* @import "typography"; */
 fieldset {
-  background: #f7f7f7;
+  background: #fff;
   border: 1px solid #dddddd;
   margin: 0 0 0.75em 0;
   padding: 1.5em; }
@@ -215,7 +215,7 @@ dl {
 
 /* @import "typography"; */
 fieldset {
-  background: #f7f7f7;
+  background: #fff;
   border: 1px solid #dddddd;
   margin: 0 0 0.75em 0;
   padding: 1.5em; }
@@ -339,7 +339,7 @@ Typography
 
 /* @import "typography"; */
 fieldset {
-  background: #f7f7f7;
+  background: #fff;
   border: 1px solid #dddddd;
   margin: 0 0 0.75em 0;
   padding: 1.5em; }
@@ -573,7 +573,7 @@ html, body {
   background-image: -ms-linear-gradient(left, transparent 0, #fff0e8 0, #fff0e8 6.17215%, transparent 6.17215%, transparent 8.5298%, #fff0e8 8.5298%, #fff0e8 14.70196%, transparent 14.70196%, transparent 17.05961%, #fff0e8 17.05961%, #fff0e8 23.23176%, transparent 23.23176%, transparent 25.58941%, #fff0e8 25.58941%, #fff0e8 31.76157%, transparent 31.76157%, transparent 34.11922%, #fff0e8 34.11922%, #fff0e8 40.29137%, transparent 40.29137%, transparent 42.64902%, #fff0e8 42.64902%, #fff0e8 48.82117%, transparent 48.82117%, transparent 51.17883%, #fff0e8 51.17883%, #fff0e8 57.35098%, transparent 57.35098%, transparent 59.70863%, #fff0e8 59.70863%, #fff0e8 65.88078%, transparent 65.88078%, transparent 68.23843%, #fff0e8 68.23843%, #fff0e8 74.41059%, transparent 74.41059%, transparent 76.76824%, #fff0e8 76.76824%, #fff0e8 82.94039%, transparent 82.94039%, transparent 85.29804%, #fff0e8 85.29804%, #fff0e8 91.4702%, transparent 91.4702%, transparent 93.82785%, #fff0e8 93.82785%, #fff0e8 100.0%, transparent 100.0%);
   background-image: -o-linear-gradient(left, transparent 0, #fff0e8 0, #fff0e8 6.17215%, transparent 6.17215%, transparent 8.5298%, #fff0e8 8.5298%, #fff0e8 14.70196%, transparent 14.70196%, transparent 17.05961%, #fff0e8 17.05961%, #fff0e8 23.23176%, transparent 23.23176%, transparent 25.58941%, #fff0e8 25.58941%, #fff0e8 31.76157%, transparent 31.76157%, transparent 34.11922%, #fff0e8 34.11922%, #fff0e8 40.29137%, transparent 40.29137%, transparent 42.64902%, #fff0e8 42.64902%, #fff0e8 48.82117%, transparent 48.82117%, transparent 51.17883%, #fff0e8 51.17883%, #fff0e8 57.35098%, transparent 57.35098%, transparent 59.70863%, #fff0e8 59.70863%, #fff0e8 65.88078%, transparent 65.88078%, transparent 68.23843%, #fff0e8 68.23843%, #fff0e8 74.41059%, transparent 74.41059%, transparent 76.76824%, #fff0e8 76.76824%, #fff0e8 82.94039%, transparent 82.94039%, transparent 85.29804%, #fff0e8 85.29804%, #fff0e8 91.4702%, transparent 91.4702%, transparent 93.82785%, #fff0e8 93.82785%, #fff0e8 100.0%, transparent 100.0%);
   background-image: linear-gradient(left, transparent 0, #fff0e8 0, #fff0e8 6.17215%, transparent 6.17215%, transparent 8.5298%, #fff0e8 8.5298%, #fff0e8 14.70196%, transparent 14.70196%, transparent 17.05961%, #fff0e8 17.05961%, #fff0e8 23.23176%, transparent 23.23176%, transparent 25.58941%, #fff0e8 25.58941%, #fff0e8 31.76157%, transparent 31.76157%, transparent 34.11922%, #fff0e8 34.11922%, #fff0e8 40.29137%, transparent 40.29137%, transparent 42.64902%, #fff0e8 42.64902%, #fff0e8 48.82117%, transparent 48.82117%, transparent 51.17883%, #fff0e8 51.17883%, #fff0e8 57.35098%, transparent 57.35098%, transparent 59.70863%, #fff0e8 59.70863%, #fff0e8 65.88078%, transparent 65.88078%, transparent 68.23843%, #fff0e8 68.23843%, #fff0e8 74.41059%, transparent 74.41059%, transparent 76.76824%, #fff0e8 76.76824%, #fff0e8 82.94039%, transparent 82.94039%, transparent 85.29804%, #fff0e8 85.29804%, #fff0e8 91.4702%, transparent 91.4702%, transparent 93.82785%, #fff0e8 93.82785%, #fff0e8 100.0%, transparent 100.0%);
-  background: #fffaef;
+  background: #fff;
   color: rgba(51, 50, 50, 0.8);
   font: 16px/1.625 "SimplonNorm-Regular-WebS", arial, sans-serif;
   height: 100%;
@@ -597,8 +597,10 @@ article h1, article h2, article h3, article h4, article h5, article h6, .sharing
 h1.list-title {
   color: rgba(51, 50, 50, 0.9); }
 
-h1, h2, h3, h4, h5, h6 {
-  margin: 0; }
+h1, h2, h3, h4, h5, h6, p {
+  margin-left: 10px;
+  margin-top: 20px;
+  margin-bottom: 10px; }
 
 iframe {
   max-width: 100%; }
@@ -904,7 +906,7 @@ h3.big a {
   -webkit-transition: all 0.25s ease-in;
   -moz-transition: all 0.25s ease-in;
   transition: all 0.25s ease-in;
-  background: #fffaef; }
+  background: #fff; }
   [id=masterContent] iframe {
     margin: 5em auto;
     display: block; }
